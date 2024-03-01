@@ -7,6 +7,8 @@ import { RecipeCardComponent } from './components/recipe-list-container/recipe-c
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 import { HomePgComponent } from './home-pg.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RecipeFormComponent } from './components/recipe-form/recipe-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,12 +16,14 @@ import { HttpClientModule } from '@angular/common/http';
     RecipeCardComponent,
     RecipeDetailsComponent,
     HomePgComponent,
+    RecipeFormComponent,
   ],
   imports: [
     CommonModule,
     HomePgRoutingModule,
     MaterialImportsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
 })
 export class HomePgModule {}

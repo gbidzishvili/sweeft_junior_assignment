@@ -1,0 +1,33 @@
+<form class="example-form" [formGroup]="recipeForm" (ngSubmit)="onFormsubmit()">
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>Image URL</mat-label>
+    <input matInput formControlName="image" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Time</mat-label>
+    <input matInput formControlName="time" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Portion</mat-label>
+    <input type="number" matInput formControlName="portion" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>level</mat-label>
+    <mat-select>
+      <mat-option value="begginer">begginer</mat-option>
+      <mat-option value="enthusiast">enthusiast</mat-option>
+      <mat-option value="expert">expert</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-checkbox formControlName="vegie" color="warn">Veggie</mat-checkbox>
+
+  <button mat-raised-button color="warn" type="submit">Submit</button>
+</form>

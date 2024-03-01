@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePgComponent } from './home-pg.component';
 import { RecipeListContainerComponent } from './components/recipe-list-container/recipe-list-container.component';
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
+import { RecipeFormComponent } from './components/recipe-form/recipe-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'recipe-list', pathMatch: 'full' },
       { path: 'recipe-list', component: RecipeListContainerComponent },
       { path: 'details', component: RecipeDetailsComponent },
+      { path: 'form', component: RecipeFormComponent },
     ],
   },
 ];

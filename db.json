@@ -5,8 +5,8 @@
       "image": "https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "name": "steak with truffle oil fries on",
       "time": "1 hour",
-      "portion": "2 people",
-      "level": "proffessional",
+      "portion": 2,
+      "level": "expert",
       "vegie": false
     },
     {
@@ -14,8 +14,8 @@
       "image": "https://images.unsplash.com/photo-1565299543923-37dd37887442?q=80&w=1981&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "name": "pancake with honey and strawberries",
       "time": "30 min",
-      "portion": "4 people",
-      "level": "intermediate",
+      "portion": 4,
+      "level": "Enthusiast",
       "vegie": true
     },
     {
@@ -23,7 +23,7 @@
       "image": "https://images.unsplash.com/photo-1611270629569-8b357cb88da9?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "name": "Fetuccine pasta with caramelized onions",
       "time": "45 min",
-      "portion": "2 people",
+      "portion": 2,
       "level": "begginer",
       "vegie": "true"
     },
@@ -32,18 +32,27 @@
       "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "name": "caesar salad with exptra vegetables",
       "time": "20 min",
-      "portion": "2 people",
-      "level": "intermediate",
+      "portion": 2,
+      "level": "Enthusiast",
       "vegie": false
     },
     {
-      "id": 4,
+      "id": 5,
       "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "name": "caesar salad with exptra vegetables",
       "time": "20 min",
-      "portion": "2 people",
-      "level": "intermediate",
+      "portion": 2,
+      "level": "Enthusiast",
       "vegie": false
+    },
+    {
+      "id": "0228",
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1899&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "name": "burger with halapenio",
+      "time": "1 hour",
+      "portion": 1,
+      "level": "",
+      "vegie": true
     }
   ]
 }

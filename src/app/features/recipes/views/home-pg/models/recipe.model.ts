@@ -3,8 +3,7 @@ export interface Recipe {
   image: string;
   name: string;
   time: string;
-  portion: string;
+  portion: number;
   level: string;
   vegie: boolean;
-
 }
