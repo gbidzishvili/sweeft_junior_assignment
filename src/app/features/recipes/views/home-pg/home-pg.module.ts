@@ -5,14 +5,15 @@ import { MaterialImportsModule } from './material-imports.module';
 import { RecipeListContainerComponent } from './components/recipe-list-container/recipe-list-container.component';
 import { RecipeCardComponent } from './components/recipe-list-container/recipe-card/recipe-card.component';
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
+import { HomePgComponent } from './home-pg.component';
 
 @NgModule({
   declarations: [
     RecipeListContainerComponent,
     RecipeCardComponent,
     RecipeDetailsComponent,
+    HomePgComponent,
   ],
   imports: [CommonModule, HomePgRoutingModule, MaterialImportsModule],
-  exports: [RecipeListContainerComponent],
 })
 export class HomePgModule {}
