@@ -6,6 +6,7 @@ import { RecipeListContainerComponent } from './components/recipe-list-container
 import { RecipeCardComponent } from './components/recipe-list-container/recipe-card/recipe-card.component';
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 import { HomePgComponent } from './home-pg.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,11 @@ import { HomePgComponent } from './home-pg.component';
     RecipeDetailsComponent,
     HomePgComponent,
   ],
-  imports: [CommonModule, HomePgRoutingModule, MaterialImportsModule],
+  imports: [
+    CommonModule,
+    HomePgRoutingModule,
+    MaterialImportsModule,
+    HttpClientModule,
+  ],
 })
 export class HomePgModule {}
