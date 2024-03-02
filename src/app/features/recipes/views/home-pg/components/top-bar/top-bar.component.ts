@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { filter, map } from 'rxjs';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Subject, filter, map, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-top-bar',
@@ -8,10 +8,11 @@ import { filter, map } from 'rxjs';
   styleUrl: './top-bar.component.scss',
 })
 export class TopBarComponent implements OnInit {
-  title: string | undefined = 'Recipe List';
-  constructor(private activatedRoute: ActivatedRoute) {}
+  private unsubscribe$ = new Subject<void>();
+  title: string | undefined = 'List';
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
   ngOnInit(): void {
-    this.activatedRoute.url.subscribe(() => {
+    this.router.events.subscribe(() => {
       this.title = this.activatedRoute.snapshot.firstChild?.routeConfig?.path;
     });
   }

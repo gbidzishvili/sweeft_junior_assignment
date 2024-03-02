@@ -5,5 +5,7 @@ export interface Recipe {
   time: string;
   portion: number;
   level: string;
+  ingredients: string[];
+  directions: string[];
   vegie: boolean;
 }

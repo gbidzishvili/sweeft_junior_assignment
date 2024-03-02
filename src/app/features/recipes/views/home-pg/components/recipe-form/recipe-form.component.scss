@@ -4,7 +4,7 @@
 .recipe-form {
   min-width: 150px;
   max-width: 500px;
-  margin: 10rem auto;
+  margin: 7rem auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
@@ -15,6 +15,7 @@
   .file-input {
     display: none;
   }
+
   .file-upload {
     display: flex;
     align-items: center;
@@ -51,5 +52,9 @@
   }
   mat-form-field {
     width: 100%;
+  }
+  button {
+    background: linear-gradient(90deg, orange 0%, rgb(255, 123, 0) 100%);
+    color: #fff;
   }
 }

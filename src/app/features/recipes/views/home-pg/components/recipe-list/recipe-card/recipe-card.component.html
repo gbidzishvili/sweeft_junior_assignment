@@ -28,6 +28,8 @@
         <span>{{ recipe.level }}</span>
       </div>
     </div>
-    <button (click)="navigateToDetails()">VIEW RECIPE</button>
+    <button (click)="navigateToDetails()" routerLink="/home/details">
+      VIEW RECIPE
+    </button>
   </mat-card-content>
 </mat-card>

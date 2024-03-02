@@ -2,6 +2,8 @@ mat-card {
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  transition: transform 0.3s ease; /* Smooth transition for the movement */
+
   &-header {
     padding: 0;
     position: relative;
@@ -87,4 +89,8 @@ mat-card {
       background-color: orange;
     }
   }
+}
+mat-card:hover {
+  /* Move the card up by 10px on hover */
+  transform: translateY(-1rem);
 }

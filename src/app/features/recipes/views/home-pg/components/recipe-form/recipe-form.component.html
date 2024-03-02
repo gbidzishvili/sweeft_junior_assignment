@@ -40,7 +40,7 @@
       type="button"
       mat-mini-fab
       color="primary"
-      class="upload-btn"
+      class="upload-btn white"
       (click)="fileUpload.click()"
     >
       <mat-icon>attach_file</mat-icon>
@@ -60,7 +60,7 @@
     class="btn-add-ingredient"
     (click)="addNewIngredientBtnClidk()"
     mat-raised-button
-    color="warn"
+    color="basic"
     type="button"
   >
     Add new ingredients
@@ -78,13 +78,15 @@
     class="btn-add-directions"
     (click)="addNewDirectionBtnClidk()"
     mat-raised-button
-    color="warn"
+    color="basic"
     type="button"
   >
     Add new Directions
   </button>
-  <mat-checkbox formControlName="vegie" color="warn">Veggie</mat-checkbox>
-  <button class="btn-submit" mat-raised-button color="warn" type="submit">
+  <mat-checkbox formControlName="vegie" color="primary"
+    >This recipe is vegan</mat-checkbox
+  >
+  <button class="btn-submit" mat-raised-button color="basic" type="submit">
     Submit
   </button>
 </form>

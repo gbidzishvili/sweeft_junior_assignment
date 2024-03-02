@@ -5,4 +5,11 @@
   background-color: #fff4eb7a;
   color: rgba(0, 0, 0, 0.87);
   border-bottom: 2px solid black;
+  span {
+    display: inline-block;
+    background: linear-gradient(90deg, orange 0%, rgb(255, 123, 0) 100%);
+    padding: 1rem 2rem;
+    border-radius: 0.6rem;
+    color: #fff;
+  }
 }
