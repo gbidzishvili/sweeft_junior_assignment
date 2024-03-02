@@ -1,5 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormGroup } from '@angular/forms';
+import {
+  Form,
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { RecipeServiceService } from '../../../../services/recipe-service.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
@@ -22,28 +29,44 @@ export class RecipeFormComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.recipeForm = this.fb.group({
-      image: [null],
-      name: [''],
-      time: [''],
-      portion: [''],
-      level: [''],
+      image: [null, Validators.required],
+      name: [null],
+      time: [null],
+      portion: [null],
+      level: [null],
       vegie: [false],
+      ingredients: this.fb.array([new FormControl()]),
+      directions: this.fb.array([new FormControl()]),
     });
   }
+  getIngredients(): FormArray {
+    return this.recipeForm.get('ingredients') as FormArray;
+  }
+  getNewIngredient(): FormControl {
+    return new FormControl();
+  }
+  getDirections(): FormArray {
+    return this.recipeForm.get('directions') as FormArray;
+  }
+  getNewDirection(): FormControl {
+    return new FormControl();
+  }
+  addNewIngredientBtnClidk(): void {
+    this.getIngredients().push(this.getNewIngredient());
+  }
+  removeIngredientBtnClick(ingredientIndex: number) {
+    this.getIngredients().removeAt(ingredientIndex);
+  }
+  addNewDirectionBtnClidk(): void {
+    this.getDirections().push(this.getNewDirection());
+  }
+  removeDirectionBtnClick(directionIndex: number) {
+    this.getDirections().removeAt(directionIndex);
+  }
   onFileSelected(event: Event) {
-    // let file = (event.target as HTMLInputElement)?.files?.[0];
-    // if (file) {
-    //   this.fileName = file.name;
-    //   // Create a temporary image source using a FileReader
-    //   const reader = new FileReader();
-    //   reader.onloadend = (_event) => {
-    //     console.log(reader.result);
-    //     this.imageurl = reader.result as string; // Assign data URL to imageSrc
-    //   };
-    //   reader.readAsDataURL(file); // Read the file as a data URL
-
     const fileInputElement = event.target as HTMLInputElement;
-    if (fileInputElement.files && fileInputElement.files[0]) {
+    if (fileInputElement.files?.[0]) {
+      this.fileName = fileInputElement.files?.[0].name;
       var reader = new FileReader();
       reader.onloadend = () => {
         var baseStringResut = reader.result as string;
@@ -55,10 +78,12 @@ export class RecipeFormComponent implements OnInit, OnDestroy {
   }
 
   onFormsubmit() {
+    console.log(this.recipeForm.valid);
+
     this.formSubscription = this.recipeService
       .createRecipe(this.recipeForm.value)
       .subscribe();
-    this.router.navigate(['/home', 'list']);
+    // this.router.navigate(['/home', 'list']);
     console.log(this.recipeForm.value);
   }
 

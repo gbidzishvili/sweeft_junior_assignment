@@ -1,16 +1,55 @@
-.example-form {
+:host ::ng-deep .mat-mdc-mini-fab.mat-primary {
+  --mdc-fab-small-container-color: #e19d1dab;
+}
+.recipe-form {
   min-width: 150px;
   max-width: 500px;
-  width: 100%;
   margin: 10rem auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2rem;
+  .name {
+    grid-column: 1/-1;
+  }
+
   .file-input {
     display: none;
   }
-  .example-full-width {
-    width: 100%;
+  .file-upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border: 1px solid orange;
+    border-radius: 1rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    grid-column: 1/-1;
   }
   mat-checkbox {
-    display: block;
+    grid-column: 1/-1;
+    margin-bottom: 3rem;
+  }
+  .level {
+    grid-column: 1 / -1; /* Span across all columns in a 2-column grid */
+    justify-self: center;
+  }
+  .ingredient {
+    grid-column: 1/-1;
+  }
+  .direction {
+    grid-column: 1/-1;
+  }
+  .btn-add-ingredient {
     margin-bottom: 2rem;
+  }
+  .btn-add-directions {
+    margin-bottom: 2rem;
+  }
+  .btn-submit {
+    grid-column: 1/-1;
+  }
+  mat-form-field {
+    width: 100%;
   }
 }

@@ -1,13 +1,31 @@
-<form class="example-form" [formGroup]="recipeForm" (ngSubmit)="onFormsubmit()">
-  <!-- <mat-form-field appearance="fill" class="example-full-width">
-    <mat-label>Image URL</mat-label>
-    <input matInput formControlName="image" />
-  </mat-form-field> -->
-  <img
-    [src]="imageurl"
-    alt="uploaded image"
-    style="margin-bottom: 10px; height: 200px; display: block"
-  />
+<form class="recipe-form" [formGroup]="recipeForm" (ngSubmit)="onFormsubmit()">
+  <!-- <div class="flex-container"> -->
+  <mat-form-field class="name" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Time</mat-label>
+    <input placeholder="30 min" matInput formControlName="time" />
+  </mat-form-field>
+  <!-- </div> -->
+  <!-- <div class="flex-container"> -->
+  <mat-form-field appearance="fill">
+    <mat-label>Portion</mat-label>
+    <input type="number" matInput formControlName="portion" />
+  </mat-form-field>
+
+  <mat-form-field class="level">
+    <mat-label>level</mat-label>
+    <mat-select formControlName="level">
+      <mat-option value="begginer">begginer</mat-option>
+      <mat-option value="enthusiast">enthusiast</mat-option>
+      <mat-option value="expert">expert</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!-- </div> -->
+  <!-- custom file uploader -->
   <input
     type="file"
     class="file-input"
@@ -16,7 +34,7 @@
   />
 
   <div class="file-upload">
-    {{ fileName || "No file uploaded yet." }}
+    {{ fileName || "No image uploaded yet." }}
 
     <button
       type="button"
@@ -29,30 +47,44 @@
     </button>
   </div>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Name</mat-label>
-    <input matInput formControlName="name" />
-  </mat-form-field>
+  <!-- add ingredients -->
+  <article class="ingredient" formArrayName="ingredients">
+    <div *ngFor="let ingredient of getIngredients().controls; let idx = index">
+      <mat-form-field appearance="fill">
+        <mat-label>Ingredient</mat-label>
+        <input matInput [formControlName]="idx" />
+      </mat-form-field>
+    </div>
+  </article>
+  <button
+    class="btn-add-ingredient"
+    (click)="addNewIngredientBtnClidk()"
+    mat-raised-button
+    color="warn"
+    type="button"
+  >
+    Add new ingredients
+  </button>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Time</mat-label>
-    <input matInput formControlName="time" />
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Portion</mat-label>
-    <input type="number" matInput formControlName="portion" />
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>level</mat-label>
-    <mat-select formControlName="level">
-      <mat-option value="begginer">begginer</mat-option>
-      <mat-option value="enthusiast">enthusiast</mat-option>
-      <mat-option value="expert">expert</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <article class="direction" formArrayName="directions">
+    <div *ngFor="let ingredient of getDirections().controls; let idx = index">
+      <mat-form-field appearance="fill">
+        <mat-label>Direction</mat-label>
+        <input matInput [formControlName]="idx" />
+      </mat-form-field>
+    </div>
+  </article>
+  <button
+    class="btn-add-directions"
+    (click)="addNewDirectionBtnClidk()"
+    mat-raised-button
+    color="warn"
+    type="button"
+  >
+    Add new Directions
+  </button>
   <mat-checkbox formControlName="vegie" color="warn">Veggie</mat-checkbox>
-
-  <button mat-raised-button color="warn" type="submit">Submit</button>
+  <button class="btn-submit" mat-raised-button color="warn" type="submit">
+    Submit
+  </button>
 </form>
