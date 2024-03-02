@@ -61,10 +61,18 @@ mat-card {
         flex-direction: column;
         mat-icon {
           align-self: center;
+          // color: rgb(31, 31, 31);
+          transition: transform 0.3s ease;
         }
+      }
+      &-inner-cont:hover {
+        // opacity: 0.5;
+        color: rgb(31, 31, 31);
+        cursor: pointer;
       }
       span {
         font-weight: 500;
+        // color: black;
       }
     }
     button {
@@ -92,5 +100,5 @@ mat-card {
 }
 mat-card:hover {
   /* Move the card up by 10px on hover */
-  transform: translateY(-1rem);
+  transform: translateY(-0.8rem);
 }
