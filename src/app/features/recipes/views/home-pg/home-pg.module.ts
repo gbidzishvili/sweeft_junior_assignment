@@ -9,6 +9,8 @@ import { HomePgComponent } from './home-pg.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeFormComponent } from './components/recipe-form/recipe-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RecipeDetailsComponent,
     HomePgComponent,
     RecipeFormComponent,
+    TopBarComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     CommonModule,

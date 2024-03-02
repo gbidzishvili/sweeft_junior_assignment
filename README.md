@@ -20,4 +20,4 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## start json-server
 
-Run npx json-server --watch db.json to start json-server
+Run `npx json-server --watch db.json` to start json-server
