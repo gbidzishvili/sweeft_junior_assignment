@@ -12,24 +12,7 @@ export class TopBarComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {}
   ngOnInit(): void {
     this.activatedRoute.url.subscribe(() => {
-      this.title = formatTitle(
-        this.activatedRoute.snapshot.firstChild?.routeConfig?.path
-      );
+      this.title = this.activatedRoute.snapshot.firstChild?.routeConfig?.path;
     });
-    function formatTitle(s: string | undefined) {
-      return (
-        s
-          // Split the string into an array of words if it contains "-"
-          ?.split('-')
-          // Map over each word
-          .map(
-            (word) =>
-              // Capitalize the first letter of each word and add the rest of the letters
-              word.charAt(0).toUpperCase() + word.slice(1)
-          )
-          // Join the words back into a string, with a space between each word
-          .join(' ')
-      );
-    }
   }
 }

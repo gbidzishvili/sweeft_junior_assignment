@@ -12,8 +12,8 @@ const routes: Routes = [
     path: 'home',
     component: HomePgComponent,
     children: [
-      { path: '', redirectTo: 'recipe-list', pathMatch: 'full' },
-      { path: 'recipe-list', component: RecipeListComponent },
+      { path: '', redirectTo: 'list', pathMatch: 'full' },
+      { path: 'list', component: RecipeListComponent },
       { path: 'details', component: RecipeDetailsComponent },
       { path: 'form', component: RecipeFormComponent },
     ],
