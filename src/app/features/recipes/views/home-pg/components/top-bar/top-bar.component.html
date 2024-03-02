@@ -1,7 +1,21 @@
 <div class="title-bar">
-  <span>Recipe</span> {{ title | titlecase }}
+  <div><span>Recipe</span> {{ title | titlecase }}</div>
   <div class="navigation">
-    <button routerLink="/home/form">Form</button>
-    <button routerLink="/home/list">list</button>
+    <button
+      type="button"
+      mat-raised-button
+      color="warn"
+      routerLink="/home/form"
+    >
+      Form
+    </button>
+    <button
+      type="button"
+      mat-raised-button
+      color="warn"
+      routerLink="/home/list"
+    >
+      list
+    </button>
   </div>
 </div>

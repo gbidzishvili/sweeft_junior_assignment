@@ -88,6 +88,6 @@ export class RecipeFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.formSubscription.unsubscribe();
+    this.formSubscription?.unsubscribe();
   }
 }
