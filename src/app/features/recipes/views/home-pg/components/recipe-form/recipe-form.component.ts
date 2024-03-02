@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup } from '@angular/forms';
 import { RecipeServiceService } from '../../../../services/recipe-service.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-form',
@@ -13,7 +14,8 @@ export class RecipeFormComponent implements OnInit, OnDestroy {
   formSubscription!: Subscription;
   constructor(
     private fb: FormBuilder,
-    private recipeService: RecipeServiceService
+    private recipeService: RecipeServiceService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +33,7 @@ export class RecipeFormComponent implements OnInit, OnDestroy {
     this.formSubscription = this.recipeService
       .createRecipe(this.recipeForm.value)
       .subscribe();
+    this.router.navigate(['/home', 'recipe-list']);
     console.log(this.recipeForm.value);
   }
   ngOnDestroy() {
