@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 import { Recipe } from '../../models/recipe.model';
 
 @Component({
-  selector: 'app-recipe-list-container',
-  templateUrl: './recipe-list-container.component.html',
-  styleUrl: './recipe-list-container.component.scss',
+  selector: 'app-recipe-list',
+  templateUrl: './recipe-list.component.html',
+  styleUrl: './recipe-list.component.scss',
 })
-export class RecipeListContainerComponent implements OnInit {
+export class RecipeListComponent implements OnInit {
   public recipes$!: Observable<Recipe[]>;
   constructor(private recipeService: RecipeServiceService) {}
   ngOnInit() {
