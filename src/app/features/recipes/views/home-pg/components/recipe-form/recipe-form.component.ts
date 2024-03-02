@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrl: './recipe-form.component.scss',
 })
 export class RecipeFormComponent implements OnInit, OnDestroy {
+  imageurl!: string | ArrayBuffer | null;
+  fileName!: string;
   recipeForm!: FormGroup;
   formSubscription!: Subscription;
   constructor(
@@ -20,7 +22,7 @@ export class RecipeFormComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.recipeForm = this.fb.group({
-      image: [''],
+      image: [null],
       name: [''],
       time: [''],
       portion: [''],
@@ -28,14 +30,38 @@ export class RecipeFormComponent implements OnInit, OnDestroy {
       vegie: [false],
     });
   }
+  onFileSelected(event: Event) {
+    // let file = (event.target as HTMLInputElement)?.files?.[0];
+    // if (file) {
+    //   this.fileName = file.name;
+    //   // Create a temporary image source using a FileReader
+    //   const reader = new FileReader();
+    //   reader.onloadend = (_event) => {
+    //     console.log(reader.result);
+    //     this.imageurl = reader.result as string; // Assign data URL to imageSrc
+    //   };
+    //   reader.readAsDataURL(file); // Read the file as a data URL
+
+    const fileInputElement = event.target as HTMLInputElement;
+    if (fileInputElement.files && fileInputElement.files[0]) {
+      var reader = new FileReader();
+      reader.onloadend = () => {
+        var baseStringResut = reader.result as string;
+        this?.recipeForm.get?.('image')?.setValue(baseStringResut);
+        console.log(this.recipeForm.get('image'));
+      };
+      reader.readAsDataURL(fileInputElement.files[0]);
+    }
+  }
 
   onFormsubmit() {
     this.formSubscription = this.recipeService
       .createRecipe(this.recipeForm.value)
       .subscribe();
-    this.router.navigate(['/home', 'recipe-list']);
+    this.router.navigate(['/home', 'list']);
     console.log(this.recipeForm.value);
   }
+
   ngOnDestroy() {
     this.formSubscription.unsubscribe();
   }

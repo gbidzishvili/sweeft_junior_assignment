@@ -1,8 +1,33 @@
 <form class="example-form" [formGroup]="recipeForm" (ngSubmit)="onFormsubmit()">
-  <mat-form-field appearance="fill" class="example-full-width">
+  <!-- <mat-form-field appearance="fill" class="example-full-width">
     <mat-label>Image URL</mat-label>
     <input matInput formControlName="image" />
-  </mat-form-field>
+  </mat-form-field> -->
+  <img
+    [src]="imageurl"
+    alt="uploaded image"
+    style="margin-bottom: 10px; height: 200px; display: block"
+  />
+  <input
+    type="file"
+    class="file-input"
+    (change)="onFileSelected($event)"
+    #fileUpload
+  />
+
+  <div class="file-upload">
+    {{ fileName || "No file uploaded yet." }}
+
+    <button
+      type="button"
+      mat-mini-fab
+      color="primary"
+      class="upload-btn"
+      (click)="fileUpload.click()"
+    >
+      <mat-icon>attach_file</mat-icon>
+    </button>
+  </div>
 
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
