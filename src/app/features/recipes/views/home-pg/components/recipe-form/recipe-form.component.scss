@@ -35,8 +35,18 @@
     grid-column: 1 / -1; /* Span across all columns in a 2-column grid */
     justify-self: center;
   }
+  .remove {
+    color: black;
+  }
+  .remove:hover {
+    color: red;
+    cursor: pointer;
+  }
   .ingredient {
     grid-column: 1/-1;
+    .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+      display: none;
+    }
   }
   .direction {
     grid-column: 1/-1;
