@@ -4,23 +4,20 @@
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
       <input matInput formControlName="name" />
+      <mat-error
+        *ngIf="
+          recipeForm.get('name')?.hasError('required') &&
+          recipeForm.get('name')?.touched
+        "
+        >name is required</mat-error
+      >
     </mat-form-field>
-    <app-error-message
-      [control]="recipeForm.get('name')"
-      *ngIf="recipeForm.get('name')?.invalid && recipeForm.get('name')?.touched"
-    ></app-error-message>
   </div>
   <div class="description">
     <mat-form-field appearance="fill">
       <mat-label>Description</mat-label>
       <input matInput formControlName="description" />
     </mat-form-field>
-    <app-error-message
-      *ngIf="
-        !recipeForm.get('description')?.valid &&
-        recipeForm.get('description')?.touched
-      "
-    ></app-error-message>
   </div>
   <!-- <mat-form-field appearance="fill">
     <mat-label>Time</mat-label>
