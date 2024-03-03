@@ -11,6 +11,7 @@ import { RecipeServiceService } from '../../../../services/recipe-service.servic
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { ImgFileUploadService } from './services/image-upload/img-file-upload.service';
+import { ErrorMessage } from './models/error-messages.model';
 
 @Component({
   selector: 'app-recipe-form',
@@ -23,7 +24,7 @@ export class RecipeFormComponent implements OnInit, OnDestroy {
   recipeForm!: FormGroup;
   formSubscription!: Subscription;
   errors = ['required', 'maxlength', 'pattern'];
-  errorMessages: { [key: string]: string } = {
+  errorMessages: ErrorMessage = {
     required: '* This field is required',
     maxlength: '* Text cannot exceed 20 characters',
     // pattern: '* Use only English letters',
