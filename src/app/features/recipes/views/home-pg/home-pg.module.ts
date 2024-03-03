@@ -11,6 +11,7 @@ import { RecipeFormComponent } from './components/recipe-form/recipe-form.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     PageNotFoundComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
     HomePgRoutingModule,
     MaterialImportsModule,
