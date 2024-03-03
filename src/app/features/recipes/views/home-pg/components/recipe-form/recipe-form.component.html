@@ -6,7 +6,7 @@
       <input matInput formControlName="name" />
       <mat-error *ngIf="recipeForm.invalid">
         <ng-container *ngFor="let errorType of errors">
-          <span *ngIf="checkIfHasError('name', errorType)">
+          <span *ngIf="checkIfInputHasError('name', errorType)">
             {{ errorMessages[errorType] }}</span
           >
         </ng-container>
@@ -19,7 +19,7 @@
       <input matInput formControlName="description" />
       <mat-error *ngIf="recipeForm.invalid">
         <ng-container *ngFor="let errorType of errors">
-          <span *ngIf="checkIfHasError('name', errorType)">
+          <span *ngIf="checkIfInputHasError('description', errorType)">
             {{ errorMessages[errorType] }}</span
           >
         </ng-container>
@@ -34,8 +34,11 @@
     #fileUpload
   />
 
-  <div class="file-upload">
-    {{ fileName || "No image uploaded yet." }}
+  <div
+    class="file-upload"
+    [ngClass]="{ error: (fileName$ | async) === '* File upload is required' }"
+  >
+    {{ (fileName$ | async) || "No image uploaded yet." }}
 
     <button
       type="button"
@@ -60,6 +63,13 @@
           class="remove remove-direction"
           >close</mat-icon
         >
+        <mat-error *ngIf="recipeForm.invalid">
+          <ng-container *ngFor="let errorType of errors">
+            <span *ngIf="checkIfInputHasError('description', errorType)">
+              {{ errorMessages[errorType] }}</span
+            >
+          </ng-container>
+        </mat-error>
       </mat-form-field>
     </div>
   </article>
@@ -84,6 +94,13 @@
           class="remove remove-direction"
           >close</mat-icon
         >
+        <mat-error *ngIf="recipeForm.invalid">
+          <ng-container *ngFor="let errorType of errors">
+            <span *ngIf="checkIfInputHasError('description', errorType)">
+              {{ errorMessages[errorType] }}</span
+            >
+          </ng-container>
+        </mat-error>
       </mat-form-field>
     </div>
   </article>
