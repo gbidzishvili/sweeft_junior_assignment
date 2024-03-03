@@ -4,41 +4,28 @@
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
       <input matInput formControlName="name" />
-      <mat-error
-        *ngIf="
-          recipeForm.get('name')?.hasError('required') &&
-          recipeForm.get('name')?.touched
-        "
-        >name is required</mat-error
-      >
+      <mat-error *ngIf="recipeForm.invalid">
+        <ng-container *ngFor="let errorType of errors">
+          <span *ngIf="checkIfHasError('name', errorType)">
+            {{ errorMessages[errorType] }}</span
+          >
+        </ng-container>
+      </mat-error>
     </mat-form-field>
   </div>
   <div class="description">
     <mat-form-field appearance="fill">
       <mat-label>Description</mat-label>
       <input matInput formControlName="description" />
+      <mat-error *ngIf="recipeForm.invalid">
+        <ng-container *ngFor="let errorType of errors">
+          <span *ngIf="checkIfHasError('name', errorType)">
+            {{ errorMessages[errorType] }}</span
+          >
+        </ng-container>
+      </mat-error>
     </mat-form-field>
   </div>
-  <!-- <mat-form-field appearance="fill">
-    <mat-label>Time</mat-label>
-    <input placeholder="30 min" matInput formControlName="time" />
-  </mat-form-field> -->
-  <!-- </div> -->
-  <!-- <div class="flex-container"> -->
-  <!-- <mat-form-field appearance="fill">
-    <mat-label>Portion</mat-label>
-    <input type="number" matInput formControlName="portion" />
-  </mat-form-field>
-
-  <mat-form-field class="level">
-    <mat-label>level</mat-label>
-    <mat-select formControlName="level">
-      <mat-option value="begginer">begginer</mat-option>
-      <mat-option value="enthusiast">enthusiast</mat-option>
-      <mat-option value="expert">expert</mat-option>
-    </mat-select>
-  </mat-form-field> -->
-  <!-- </div> -->
   <!-- custom file uploader -->
   <input
     type="file"
