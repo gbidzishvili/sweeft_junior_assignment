@@ -1,17 +1,34 @@
 <form class="recipe-form" [formGroup]="recipeForm" (ngSubmit)="onFormsubmit()">
   <!-- <div class="flex-container"> -->
-  <mat-form-field class="name" appearance="fill">
-    <mat-label>Name</mat-label>
-    <input matInput formControlName="name" />
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
+  <div class="name">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+    <app-error-message
+      [control]="recipeForm.get('name')"
+      *ngIf="recipeForm.get('name')?.invalid && recipeForm.get('name')?.touched"
+    ></app-error-message>
+  </div>
+  <div class="description">
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" />
+    </mat-form-field>
+    <app-error-message
+      *ngIf="
+        !recipeForm.get('description')?.valid &&
+        recipeForm.get('description')?.touched
+      "
+    ></app-error-message>
+  </div>
+  <!-- <mat-form-field appearance="fill">
     <mat-label>Time</mat-label>
     <input placeholder="30 min" matInput formControlName="time" />
-  </mat-form-field>
+  </mat-form-field> -->
   <!-- </div> -->
   <!-- <div class="flex-container"> -->
-  <mat-form-field appearance="fill">
+  <!-- <mat-form-field appearance="fill">
     <mat-label>Portion</mat-label>
     <input type="number" matInput formControlName="portion" />
   </mat-form-field>
@@ -23,7 +40,7 @@
       <mat-option value="enthusiast">enthusiast</mat-option>
       <mat-option value="expert">expert</mat-option>
     </mat-select>
-  </mat-form-field>
+  </mat-form-field> -->
   <!-- </div> -->
   <!-- custom file uploader -->
   <input

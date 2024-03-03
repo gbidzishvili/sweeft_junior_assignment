@@ -30,10 +30,15 @@ export class RecipeFormComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.recipeForm = this.fb.group({
       image: [null, Validators.required],
-      name: [null],
-      time: [null],
-      portion: [null],
-      level: [null],
+      name: [
+        null,
+        [
+          Validators.required,
+          Validators.maxLength(10),
+          Validators.pattern('^[a-zA-Z]+$'),
+        ],
+      ],
+      description: [null],
       vegie: [false],
       ingredients: this.fb.array([new FormControl()]),
       directions: this.fb.array([new FormControl()]),
@@ -84,7 +89,7 @@ export class RecipeFormComponent implements OnInit, OnDestroy {
       .createRecipe(this.recipeForm.value)
       .subscribe();
     // this.router.navigate(['/home', 'list']);
-    console.log(this.recipeForm.value);
+    console.log(this.recipeForm);
   }
 
   ngOnDestroy() {

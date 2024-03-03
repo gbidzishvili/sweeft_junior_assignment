@@ -11,6 +11,9 @@
   .name {
     grid-column: 1/-1;
   }
+  .description {
+    grid-column: 1/-1;
+  }
 
   .file-input {
     display: none;

@@ -4,16 +4,12 @@
     <mat-icon *ngIf="recipe.vegie" class="category-icon">eco</mat-icon>
   </mat-card-header>
   <mat-card-content>
-    <div class="stars">
-      <mat-icon>star</mat-icon>
-      <mat-icon>star</mat-icon>
-      <mat-icon>star</mat-icon>
-      <mat-icon>star</mat-icon>
-      <mat-icon>star_half</mat-icon>
-    </div>
-    <mat-card-title
-      ><span>{{ recipe.name }}</span></mat-card-title
-    >
+    <mat-card-title>
+      <span>{{ recipe.name }}</span>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <span>{{ recipe.description }}</span>
+    </mat-card-subtitle>
     <div class="description">
       <div class="description-inner-cont">
         <mat-icon class="description-icon">favorite</mat-icon>
