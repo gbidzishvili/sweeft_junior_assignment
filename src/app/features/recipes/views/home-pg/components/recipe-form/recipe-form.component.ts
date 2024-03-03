@@ -10,7 +10,7 @@ import {
 import { RecipeServiceService } from '../../../../services/recipe-service.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { ImgFileUploadService } from './services/img-file-upload.service';
+import { ImgFileUploadService } from './services/image-upload/img-file-upload.service';
 
 @Component({
   selector: 'app-recipe-form',
@@ -88,7 +88,6 @@ export class RecipeFormComponent implements OnInit, OnDestroy {
 
   onFormsubmit() {
     this.recipeForm.markAllAsTouched();
-    console.log(this.recipeForm.valid);
     if (this.recipeForm.valid) {
       this.formSubscription = this.recipeService
         .createRecipe(this.recipeForm.value)
